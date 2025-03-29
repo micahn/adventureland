@@ -1,0 +1,19 @@
+services:
+  central-server:
+    build:
+      dockerfile: Dockerfile.central-server
+    ports:
+      - 8080:8080
+    volumes:
+      # Mount secrets, don't copy them to the docker image
+      - ./secrets.py:/app/secrets.py
+
+  game-server-eu-i:
+    build:
+      dockerfile: Dockerfile.game-server
+    ports:
+      - 8081:8080
+    volumes:
+      # Mount variables, don't copy them to the docker image
+      - ./live_variables.js:/app/live_variables.js
+      - ./variables.js:/app/variables.js
