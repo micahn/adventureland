@@ -7,12 +7,13 @@ services:
     volumes:
       # Mount secrets, don't copy them to the docker image
       - ./secrets.py:/app/secrets.py
+      - ./storage:/storage
 
   game-server-eu-i:
     build:
       dockerfile: Dockerfile.game-server
     ports:
-      - 8081:8080
+      - 8082:8082
     volumes:
       # Mount variables, don't copy them to the docker image
       - ./live_variables.js:/app/live_variables.js
