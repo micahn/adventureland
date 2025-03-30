@@ -163,7 +163,7 @@ def gdi(request=None):
 
 		domain.base_url=protocol + "://" + hostname
 		domain.pref_url=domain.base_url
-		domain.server_ip="192.168.1.125"
+		domain.server_ip="127.0.0.1"
 		domain.stripe_pkey=stripe_pkey
 		domain.stripe_enabled=False
 		domain.https_mode=False
