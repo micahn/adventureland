@@ -28,4 +28,4 @@ COPY utility utility
 # Expose dev server port
 EXPOSE 8080
 
-CMD [ "python", "/google-cloud-sdk/bin/dev_appserver.py", "--storage_path=/storage", "--blobstore_path=/storage/blobstore/", "--datastore_path=/storage/new_db.bin", "app.yaml", "--host=0.0.0.0",  "--require_indexes", "--enable_host_checking=False" ]
+CMD [ "python", "/google-cloud-sdk/bin/dev_appserver.py", "--storage_path=/storage", "--blobstore_path=/storage/blobstore/", "--datastore_path=/storage/db.rdbms", "app.yaml", "--host=0.0.0.0",  "--require_indexes", "--enable_host_checking=False" ]
