@@ -8,7 +8,11 @@ services:
       # Mount secrets, don't copy them to the docker image
       - ./secrets.py:/app/secrets.py
       - ./storage:/storage
-
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080"]  # Adjust the health check command as needed
+      interval: 30s
+      timeout: 10s
+      retries: 5
   game-server-eu-i:
     build:
       dockerfile: Dockerfile.game-server
@@ -18,3 +22,6 @@ services:
       # Mount variables, don't copy them to the docker image
       - ./live_variables.js:/app/live_variables.js
       - ./variables.js:/app/variables.js
+  depends_on:
+        central-server:
+          condition: service_healthy
